@@ -1,0 +1,6 @@
+{
+  "name": "AuraFlow",
+  "description": "AI-powered personal workflow and automation assistant for natural language task automation, smart notification management, and contextual triggers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
