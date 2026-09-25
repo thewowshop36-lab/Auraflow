@@ -1,0 +1,22 @@
+{
+  "name": "auraflow-mobile-web",
+  "version": "1.0.0",
+  "description": "AuraFlow - Mobile Web Application with Google AdSense Monetization & VIP Code Hub for Vercel",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve public -p 3000",
+    "start": "npx serve public -p 3000",
+    "build": "echo 'Static build ready for Vercel deployment'"
+  },
+  "keywords": [
+    "mobile-web",
+    "vercel",
+    "google-adsense",
+    "monetization",
+    "auraflow",
+    "pwa",
+    "vip-templates"
+  ],
+  "author": "AuraFlow Team",
+  "license": "MIT"
+}

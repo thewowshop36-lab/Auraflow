@@ -68,6 +68,7 @@ import com.example.ui.screens.logs.LogsScreen
 import com.example.ui.screens.monetization.MonetizationScreen
 import com.example.ui.screens.notifications.NotificationsScreen
 import com.example.ui.screens.premium.PremiumVipScreen
+import com.example.ui.screens.web.WebHubScreen
 import com.example.ui.screens.studio.StudioScreen
 import java.util.Locale
 
@@ -223,6 +224,40 @@ fun MainScreen(viewModel: AuraFlowViewModel) {
                                 style = MaterialTheme.typography.labelSmall,
                                 fontWeight = FontWeight.Bold,
                                 color = if (subscriptionState.isVipPro) Color.White else Color(0xFFF59E0B),
+                                fontSize = 11.sp
+                            )
+                        }
+                    }
+
+                    // Vercel Web Pill (Opens Mobile Web Hub)
+                    Surface(
+                        onClick = { viewModel.setTab(AppTab.WEB_APP) },
+                        shape = RoundedCornerShape(12.dp),
+                        color = if (currentTab == AppTab.WEB_APP) MaterialTheme.colorScheme.primary else Color(0xFF0F172A),
+                        border = androidx.compose.foundation.BorderStroke(
+                            1.dp,
+                            if (currentTab == AppTab.WEB_APP) Color.Transparent else Color(0xFF8B5CF6).copy(alpha = 0.5f)
+                        ),
+                        modifier = Modifier
+                            .padding(end = 4.dp)
+                            .testTag("topbar_vercel_web_pill")
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(horizontal = 7.dp, vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "▲",
+                                color = Color.White,
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Black
+                            )
+                            Spacer(modifier = Modifier.width(3.dp))
+                            Text(
+                                text = "Web",
+                                style = MaterialTheme.typography.labelSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White,
                                 fontSize = 11.sp
                             )
                         }
@@ -434,6 +469,12 @@ fun MainScreen(viewModel: AuraFlowViewModel) {
                             onTriggerRewarded = { viewModel.triggerRewardedAd("+5 Free AI Credits") },
                             onSimulateBatchImpressions = { count -> viewModel.simulateBatchImpressions(count) },
                             onResetStats = { viewModel.resetEarningsStats() }
+                        )
+                    }
+
+                    AppTab.WEB_APP -> {
+                        WebHubScreen(
+                            onNavigateBack = { viewModel.setTab(AppTab.STUDIO) }
                         )
                     }
 

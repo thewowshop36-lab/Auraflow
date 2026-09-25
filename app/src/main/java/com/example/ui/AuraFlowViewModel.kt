@@ -30,6 +30,7 @@ enum class AppTab(val title: String) {
     NOTIFICATIONS("Alerts"),
     VIP_PREMIUM("VIP Pro"),
     MONETIZATION("Earnings & Ads"),
+    WEB_APP("Vercel Web"),
     LOGS("History & Context")
 }
 
